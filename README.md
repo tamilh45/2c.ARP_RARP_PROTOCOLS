@@ -1,6 +1,5 @@
 # 2c.SIMULATING ARP /RARP PROTOCOLS
-### NAME   : V RAKSHA DHARANIKA
-### REF NO : 212223230167
+
 ## AIM
 To write a python program for simulating ARP protocols using TCP.
 ## ALGORITHM:
