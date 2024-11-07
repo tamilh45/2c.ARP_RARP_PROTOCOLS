@@ -1,5 +1,4 @@
 # 2c.SIMULATING ARP /RARP PROTOCOLS
-
 ## AIM
 To write a python program for simulating ARP protocols using TCP.
 ## ALGORITHM:
@@ -16,65 +15,14 @@ To write a python program for simulating ARP protocols using TCP.
 stored.
 4. Read the IP address which is send by the client.
 5. Map the IP address with its MAC address and return the MAC address to client.
-P
 ## PROGRAM - ARP
-```PY
-import socket
-
-# Mock MAC address database
-ARP_TABLE = {
-    "192.168.1.1": "00:1A:2B:3C:4D:5E",
-    "192.168.1.2": "00:1A:2B:3C:4D:5F",
-    "192.168.1.3": "00:1A:2B:3C:4D:5G",
-}
-
-def start_server():
-    # Create a socket object
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    server_socket.bind(('localhost', 12345))  # Bind to localhost and port 12345
-    print("Server is running...")
-
-    while True:
-        # Receive data from client
-        data, addr = server_socket.recvfrom(1024)
-        ip_address = data.decode('utf-8')
-        print(f"Received IP address: {ip_address} from {addr}")
-
-        # Lookup MAC address
-        mac_address = ARP_TABLE.get(ip_address, "Not Found")
-        server_socket.sendto(mac_address.encode('utf-8'), addr)
-
-if __name__ == "__main__":
-    start_server()
-```
+![image](https://github.com/rakshithaprakashkumar11/2c.ARP_RARP_PROTOCOLS/assets/150994181/535880f4-8a8b-4afd-8be5-29bc5a33a8e3)
 ## OUPUT - ARP
-![image](https://github.com/user-attachments/assets/0d33598e-856f-49a3-baae-ff8f57fb1e61)
-
+![image](https://github.com/rakshithaprakashkumar11/2c.ARP_RARP_PROTOCOLS/assets/150994181/bb4ab0f0-bcd6-47b0-b695-933d6823205c)
 ## PROGRAM - RARP
-```PY
-import socket
-
-def request_mac_address(ip_address):
-    # Create a socket object
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-    # Send IP address to server
-    client_socket.sendto(ip_address.encode('utf-8'), ('localhost', 12345))
-
-    # Receive MAC address from server
-    mac_address, _ = client_socket.recvfrom(1024)
-    print(f"MAC address for {ip_address} is: {mac_address.decode('utf-8')}")
-
-if __name__ == "__main__":
-    ip_to_lookup = input("Enter the IP address to convert to MAC address: ")
-    request_mac_address(ip_to_lookup)
-```
+![image](https://github.com/rakshithaprakashkumar11/2c.ARP_RARP_PROTOCOLS/assets/150994181/ea70dc78-ec03-42bd-8cf1-0c0af2350309)
 ## OUPUT -RARP
-
-![image](https://github.com/user-attachments/assets/506d8ac3-6c87-409a-be76-06a6f619d910)
-
-
+![image](https://github.com/rakshithaprakashkumar11/2c.ARP_RARP_PROTOCOLS/assets/150994181/fe03e935-0217-4689-b125-a3c6116d93a6)
 ## RESULT
-
 Thus, the python program for simulating ARP protocols using TCP was successfully 
 executed.
